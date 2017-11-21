@@ -1,5 +1,5 @@
 # X-Formation
-1.To run application you’ll first need to install the Angular 2 CLI.
+1.To run application you’ll first need to install the Angular 2 CLI.<br>
 2.Next, clone this repo:
 ```
 https://github.com/michalskiPawel15/X-Formation.git
