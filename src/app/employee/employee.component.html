@@ -1,0 +1,97 @@
+<div class='employees_table'>
+	<div class='employee_row'>
+		<div class='employee_cell th'>
+			<p>First name and last name</p>
+		</div>
+		<div class='employee_cell th'>
+			<p>Role</p>
+		</div>
+		<div class='employee_cell th'>
+			<p>Experience</p>
+		</div>
+	</div>
+	<div *ngFor='let employee of employees;let i=index;' class='employee_row tr' (click)='getEmployee(employee,i)'>
+		<div class='employee_row info' *ngIf='!employee.del'>
+			<div class='employee_cell'>
+				<p>{{employee.fname}} {{employee.lname}}</p>
+			</div>
+			<div class='employee_cell'>
+				<p>{{employee.role}}</p>
+			</div>
+			<div class='employee_cell'>
+				<p>{{employee.exp}}</p>
+			</div>
+		</div>
+		<div class='employee_row tooltip'>
+			<div class='employee_cell'>
+				<p>Short description:<br>{{employee.short_desc}}</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class='employee_form_bg' *ngIf='showForm'>
+	<div class='employee_form'>
+		<form #emplForm='ngForm' (ngSubmit)='subForm(emplForm.value)'>
+			<input type='hidden' name='empIndex' [(ngModel)]='empIndex'>
+			<div class='form_readonly form_divide'>
+				<div class='form_input'>
+					<label for='form_label_fname' class='form_label'>First name:</label>
+					<br>
+					<input type='text' id='form_label_fname' name='fname' [(ngModel)]='employee.fname' readonly>
+				</div>
+				<div class='form_input'>
+					<label for='form_label_lname' class='form_label'>Last Name:</label>
+					<br>
+					<input type='text' id='form_label_lname' name='lname' [(ngModel)]='employee.lname' readonly>
+				</div>
+				<div class='form_input'>
+					<label for='form_label_pos' class='form_label'>Position:</label>
+					<br>
+					<input type='text' id='form_label_pos' [(ngModel)]='employee.pos' name='pos' readonly>
+				</div>
+				<div class='form_input'>
+					<label for='form_label_role' class='form_label'>Role:</label>
+					<br>
+					<input type='text' id='form_label_role' [(ngModel)]='employee.role' name='role' readonly>
+				</div>
+			</div>
+			<div class='form_edit form_divide'>
+				<div class='form_input'>
+					<label for='form_label_exp' class='form_label'>Experience:</label>
+					<br>
+					<input type='text' id='form_label_exp' [placeholder]='employee.exp' name='exp' #exp='ngModel' ngModel required>
+					<div *ngIf="exp.invalid&&(exp.dirty || exp.touched)" class="alert alert-danger">
+						<div *ngIf="exp.errors.required">
+							Experience is required.
+						</div>
+					</div>
+				</div>
+				<div class='form_input'>
+					<label for='form_label_sdesc' class='form_label'>Short description:</label>
+					<br>
+					<textarea rows="4" cols="50" id='form_label_sdesc' [placeholder]='employee.short_desc' name='short_desc' #short_desc='ngModel' ngModel required></textarea>
+					<div *ngIf="short_desc.invalid&&(short_desc.dirty || short_desc.touched)" class="alert alert-danger">
+						<div *ngIf="short_desc.errors.required">
+							Short description is required.
+						</div>
+					</div>
+				</div>
+				<div class='form_input'>
+					<label for='form_label_ldesc' class='form_label'>Long description</label>
+					<br>
+					<textarea rows="6" cols="50" id='form_label_ldesc' [placeholder]='employee.long_desc' name='long_desc' #long_desc='ngModel' ngModel required></textarea>
+					<div *ngIf="long_desc.invalid&&(long_desc.dirty || long_desc.touched)" class="alert alert-danger">
+						<div *ngIf="long_desc.errors.required">
+							Long description is required.
+						</div>
+					</div>
+				</div>
+			</div>
+			<div style='clear:both;'></div>
+			<div class='form_input'>
+				<button type="submit" class='form_btn save_btn' [disabled]='emplForm.invalid'>Save</button>
+				<button type="button" (click)='cancelForm()' class='form_btn cancel_btn'>Cancel</button>
+			</div>
+		</form>
+	</div>
+</div>
