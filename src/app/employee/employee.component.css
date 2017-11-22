@@ -131,6 +131,11 @@
 .cancel_btn{
     background-color: #f44336;
 }
+.delete_btn{
+    background-color: #ffffff;
+    color:#ff0000;
+    border:solid 3px #ff0000;
+}
 .alert{
     padding: 15px;
     border: 1px solid transparent;

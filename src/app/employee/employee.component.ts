@@ -50,4 +50,7 @@ export class EmployeeComponent{
 			}
 		}
 	}
+	deleteEmp(){
+		alert('Are You sure?');
+	}
 }

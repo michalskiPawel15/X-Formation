@@ -90,7 +90,8 @@
 			<div style='clear:both;'></div>
 			<div class='form_input'>
 				<button type="submit" class='form_btn save_btn' [disabled]='emplForm.invalid'>Save</button>
-				<button type="button" (click)='cancelForm()' class='form_btn cancel_btn'>Cancel</button>
+				<button type="button" class='form_btn cancel_btn' (click)='cancelForm()'>Cancel</button>
+				<button type="button" class='form_btn delete_btn' (click)='deleteEmp()'>Delete employee</button>
 			</div>
 		</form>
 	</div>
