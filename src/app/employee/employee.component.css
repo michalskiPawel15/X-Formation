@@ -134,6 +134,7 @@
 .delete_btn{
     background-color: #ffffff;
     color:#ff0000;
+    font-weight:bold;
     border:solid 3px #ff0000;
 }
 .alert{

@@ -50,7 +50,12 @@ export class EmployeeComponent{
 			}
 		}
 	}
-	deleteEmp(){
-		alert('Are You sure?');
+	deleteEmp(empl){
+		var del=confirm('Delete employee?');
+		if(del===true){
+			alert('Employee deleted.');
+			empl.del=true;
+			this.toogleForm();
+		}
 	}
 }

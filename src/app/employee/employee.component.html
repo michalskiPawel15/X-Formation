@@ -69,7 +69,7 @@
 				<div class='form_input'>
 					<label for='form_label_sdesc' class='form_label'>Short description:</label>
 					<br>
-					<textarea rows="4" cols="50" id='form_label_sdesc' [placeholder]='employee.short_desc' name='short_desc' #short_desc='ngModel' ngModel required></textarea>
+					<textarea rows="4" cols="40" id='form_label_sdesc' [placeholder]='employee.short_desc' name='short_desc' #short_desc='ngModel' ngModel required></textarea>
 					<div *ngIf="short_desc.invalid&&(short_desc.dirty || short_desc.touched)" class="alert alert-danger">
 						<div *ngIf="short_desc.errors.required">
 							Short description is required.
@@ -79,7 +79,7 @@
 				<div class='form_input'>
 					<label for='form_label_ldesc' class='form_label'>Long description</label>
 					<br>
-					<textarea rows="6" cols="50" id='form_label_ldesc' [placeholder]='employee.long_desc' name='long_desc' #long_desc='ngModel' ngModel required></textarea>
+					<textarea rows="6" cols="40" id='form_label_ldesc' [placeholder]='employee.long_desc' name='long_desc' #long_desc='ngModel' ngModel required></textarea>
 					<div *ngIf="long_desc.invalid&&(long_desc.dirty || long_desc.touched)" class="alert alert-danger">
 						<div *ngIf="long_desc.errors.required">
 							Long description is required.
@@ -91,7 +91,7 @@
 			<div class='form_input'>
 				<button type="submit" class='form_btn save_btn' [disabled]='emplForm.invalid'>Save</button>
 				<button type="button" class='form_btn cancel_btn' (click)='cancelForm()'>Cancel</button>
-				<button type="button" class='form_btn delete_btn' (click)='deleteEmp()'>Delete employee</button>
+				<button type="button" class='form_btn delete_btn' (click)='deleteEmp(employee)'>Delete employee</button>
 			</div>
 		</form>
 	</div>
